@@ -10,7 +10,8 @@ import petRegister from './routes/petRegister';
 import petData from './routes/petData'
 import getProfile from './routes/getProfile'
 import addReminder from './routes/addReminder'
-const app = express();
+import addActivity from './routes/addActivity'
+const app = express()
 app.use(express.json());
 const connection = async () => {
   try {
@@ -30,7 +31,8 @@ app.use('/api/register',register);
 app.use('/api/petRegister',petRegister);
 app.use('/api/petData',petData);
 app.use('/api/getProfile',getProfile);
-app.use('/api/addReminder',addReminder)
+app.use('/api/addReminder',addReminder);
+app.use('/api/addActivity',addActivity)
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
