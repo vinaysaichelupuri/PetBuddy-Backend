@@ -14,6 +14,7 @@ import addActivity from './routes/addActivity'
 import addGallery from './routes/addGallery'
 import getGallery from './routes/getGallery'
 import getReminder from './routes/getReminder'
+import getActivity from './routes/getActivity'
 const app = express()
 app.use(express.json());
 const connection = async () => {
@@ -38,7 +39,8 @@ app.use('/api/addReminder',addReminder);
 app.use('/api/addActivity',addActivity);
 app.use('/api/addGallery',addGallery);
 app.use('/api/getGallery',getGallery);
-app.use('/api/getReminder',getReminder)
+app.use('/api/getReminder',getReminder);
+app.use('/api/getActivity',getActivity)
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
