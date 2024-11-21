@@ -5,6 +5,7 @@ import  trainingData  from './routes/getTrainingData';
 import  groomingData  from './routes/getGroomingData';
 import  boardingData  from './routes/getBoardingData';
 import login from './routes/login';
+import register from './routes/register';
 const app = express();
 app.use(express.json());
 
@@ -23,7 +24,8 @@ app.use('/api/doctorData', doctorData);
 app.use('/api/trainingData',trainingData);
 app.use('/api/groomingData',groomingData);
 app.use('/api/boardingData',boardingData);
-app.use('/api/login',login)
+app.use('/api/login',login);
+app.use('/api/register',register)
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
