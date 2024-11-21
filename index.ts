@@ -8,6 +8,7 @@ import login from './routes/login';
 import register from './routes/register';
 import petRegister from './routes/petRegister';
 import petData from './routes/petData'
+import getProfile from './routes/getProfile'
 const app = express();
 app.use(express.json());
 const connection = async () => {
@@ -26,7 +27,8 @@ app.use('/api/boardingData',boardingData);
 app.use('/api/login',login);
 app.use('/api/register',register);
 app.use('/api/petRegister',petRegister);
-app.use('/api/petData',petData)
+app.use('/api/petData',petData);
+app.use('/api/getProfile',getProfile)
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
