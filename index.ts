@@ -1,0 +1,31 @@
+import express from 'express';
+import mongoose from 'mongoose';
+import doctorData from './routes/getDoctorsData'; 
+import  trainingData  from './routes/getTrainingData';
+import  groomingData  from './routes/getGroomingData';
+import  boardingData  from './routes/getBoardingData';
+import login from './routes/login';
+const app = express();
+app.use(express.json());
+
+
+const connection = async () => {
+  try {
+    await mongoose.connect('mongodb://localhost:27017/PetBuddy');
+    console.log('Database connection established');
+  } catch (error) {
+    console.error('Database connection failed:', error); 
+  }
+};
+
+connection();
+app.use('/api/doctorData', doctorData);
+app.use('/api/trainingData',trainingData);
+app.use('/api/groomingData',groomingData);
+app.use('/api/boardingData',boardingData);
+app.use('/api/login',login)
+
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
