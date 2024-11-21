@@ -6,10 +6,9 @@ import  groomingData  from './routes/getGroomingData';
 import  boardingData  from './routes/getBoardingData';
 import login from './routes/login';
 import register from './routes/register';
+import petRegister from './routes/petRegister'
 const app = express();
 app.use(express.json());
-
-
 const connection = async () => {
   try {
     await mongoose.connect('mongodb://localhost:27017/PetBuddy');
@@ -18,14 +17,14 @@ const connection = async () => {
     console.error('Database connection failed:', error); 
   }
 };
-
 connection();
 app.use('/api/doctorData', doctorData);
 app.use('/api/trainingData',trainingData);
 app.use('/api/groomingData',groomingData);
 app.use('/api/boardingData',boardingData);
 app.use('/api/login',login);
-app.use('/api/register',register)
+app.use('/api/register',register);
+app.use('/api/petRegister',petRegister)
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
