@@ -48,12 +48,12 @@ export const dataSchema = new mongoose.Schema({
       remarks: {
         type: String,
       },
-      reminder: [
+      Remainders: [
         {
           type: {
             type: String,
           },
-          reminderName: {
+          remainderName: {
             type: String,
           },
           startTime: {
