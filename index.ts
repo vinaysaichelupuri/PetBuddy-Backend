@@ -12,6 +12,7 @@ import getProfile from './routes/getProfile'
 import addReminder from './routes/addReminder'
 import addActivity from './routes/addActivity'
 import addGallery from './routes/addGallery'
+import getGallery from './routes/getGallery'
 const app = express()
 app.use(express.json());
 const connection = async () => {
@@ -34,7 +35,8 @@ app.use('/api/petData',petData);
 app.use('/api/getProfile',getProfile);
 app.use('/api/addReminder',addReminder);
 app.use('/api/addActivity',addActivity);
-app.use('/api/addGallery',addGallery)
+app.use('/api/addGallery',addGallery);
+app.use('/api/getGallery',getGallery)
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
