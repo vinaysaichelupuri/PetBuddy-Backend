@@ -6,7 +6,8 @@ import  groomingData  from './routes/getGroomingData';
 import  boardingData  from './routes/getBoardingData';
 import login from './routes/login';
 import register from './routes/register';
-import petRegister from './routes/petRegister'
+import petRegister from './routes/petRegister';
+import petData from './routes/petData'
 const app = express();
 app.use(express.json());
 const connection = async () => {
@@ -24,9 +25,11 @@ app.use('/api/groomingData',groomingData);
 app.use('/api/boardingData',boardingData);
 app.use('/api/login',login);
 app.use('/api/register',register);
-app.use('/api/petRegister',petRegister)
+app.use('/api/petRegister',petRegister);
+app.use('/api/petData',petData)
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
