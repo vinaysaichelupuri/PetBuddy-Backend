@@ -6,7 +6,6 @@ router.post('/', async (req: Request, res: Response) => {
     const { username} = req.body;
     const user = new PetData(username)
     const results =await user.getPetData();
-    console.log(results)
     if (results) {
         res.status(200).json(results)
 }

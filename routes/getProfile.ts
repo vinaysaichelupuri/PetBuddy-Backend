@@ -6,9 +6,9 @@ router.post('/', async (req: Request, res: Response) => {
     const { username} = req.body;
     const user = new GetProfile(username)
     const results =await user.getProfileData();
-    console.log(results)
     if (results) {
-        res.status(200).json(results.ProfileData)
+        res.status(200).send(results.ProfileData)
+        console.log(results)
 }
   } catch (error) {
     res.status(500).json({ error: 'An error occurred' });

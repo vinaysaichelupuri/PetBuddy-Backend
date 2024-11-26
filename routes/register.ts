@@ -6,7 +6,6 @@ router.post('/', async (req: Request, res: Response) => {
     const { username, password,userPhoto,email,phoneNumber} = req.body;
     const user = new Register(username,password,userPhoto,email,phoneNumber)
     const results =await user.getRegister();
-    console.log(results?.status)
     if (results) {
     if(results.status===200){
         res.status(results.status).json({message: 'Registration successful'});

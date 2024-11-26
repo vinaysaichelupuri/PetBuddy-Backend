@@ -6,7 +6,6 @@ router.post('/', async (req: Request, res: Response) => {
     const { username,petName} = req.body;
     const user = new GetGallery(username,petName)
     const results =await user.getGallery();
-    console.log(results.petGallery)
     if (results) {
     if(results.status===200){
         res.status(results.status).json(results.petGallery);

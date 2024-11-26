@@ -6,15 +6,14 @@ router.post('/', async (req: Request, res: Response) => {
     const { username, password } = req.body;
     const user = new Login(username,password)
     const results =await user.getLogin();
-    console.log(results?.status)
     if (results) {
     if(results.status===200){
         res.status(results.status).json({message: 'Login successful'});
     }
-    if(results.status===400){
+    if(results.status===401){
         res.status(results.status).json({message: 'Wrong password'});
     }
-    if(results.status===401){
+    if(results.status===404){
         res.status(results.status).json({message: 'No user found'});
     }
 }
