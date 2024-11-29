@@ -56,11 +56,15 @@ export const dataSchema = new mongoose.Schema({
           remainderName: {
             type: String,
           },
+          date:{
+            type:Date
+          }
+          ,
           startTime: {
-            type: String,
+            type: Date,
           },
           endTime: {
-            type: String,
+            type: Date,
           },
         },
       ],
@@ -70,10 +74,10 @@ export const dataSchema = new mongoose.Schema({
             type: String,
           },
           startTime: {
-            type: String,
+            type: Date,
           },
           endTime: {
-            type: String,
+            type: Date,
           },
         },
       ],

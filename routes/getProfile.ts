@@ -8,7 +8,6 @@ router.post('/', async (req: Request, res: Response) => {
     const results =await user.getProfileData();
     if (results) {
         res.status(200).send(results.ProfileData)
-        console.log(results)
 }
   } catch (error) {
     res.status(500).json({ error: 'An error occurred' });
