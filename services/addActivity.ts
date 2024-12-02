@@ -3,14 +3,12 @@ export class AddActivity {
     username:string;
     petName:string;
     activityName:string;
-    date:Date;
     startTime:Date;
     endTime:Date;
-    constructor(username:string,petName:string,activityName:string,date:Date,startTime:Date,endTime:Date){
+    constructor(username:string,petName:string,activityName:string,startTime:Date,endTime:Date){
         this.username = username,
         this.petName = petName,
         this.activityName = activityName,
-        this.date = date,
         this.startTime = startTime,
         this.endTime = endTime
     }
@@ -24,7 +22,7 @@ export class AddActivity {
             return {status:401}
         }
         else{
-            const petReminder = findPet.activity.push({activityName:this.activityName,date:this.date,startTime:this.startTime,endTime:this.endTime})
+            const petReminder = findPet.activity.push({activityName:this.activityName,startTime:this.startTime,endTime:this.endTime})
               await user.save();
               return{status:200}
         }

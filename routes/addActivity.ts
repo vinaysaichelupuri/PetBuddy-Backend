@@ -3,9 +3,10 @@ import express, { Request, Response } from 'express';
 const router = express.Router(); 
 router.post('/', async (req: Request, res: Response) => {
   try {
-    const { username,petName,type,remainderName,date,startTime,endTime} = req.body;
-    const user = new AddActivity(username,petName,remainderName,date,startTime,endTime)
+    const { username,petName,activityName,startTime,endTime} = req.body;
+    const user = new AddActivity(username,petName,activityName,startTime,endTime)
     const results =await user.addActivity();
+    console.log('api hitted')
     if (results) {
     if(results.status===200){
         res.status(results.status).json({message: 'Added Reminder successful'});
