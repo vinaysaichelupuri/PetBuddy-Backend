@@ -6,7 +6,6 @@ router.post('/', async (req: Request, res: Response) => {
     const { username,petName,activityName,startTime,endTime} = req.body;
     const user = new AddActivity(username,petName,activityName,startTime,endTime)
     const results =await user.addActivity();
-    console.log('api hitted')
     if (results) {
     if(results.status===200){
         res.status(results.status).json({message: 'Added Reminder successful'});
