@@ -19,7 +19,7 @@ const app = express()
 app.use(express.json());
 const connection = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/PetBuddy');
+    await mongoose.connect('mongodb+srv://chelpurivinaysai02:ozzIYjEuTKFUdtDN@pet-buddy-database.wrxuj.mongodb.net/?retryWrites=true&w=majority&appName=Pet-Buddy-Database');
     console.log('Database connection established');
   } catch (error) {
     console.error('Database connection failed:', error); 
