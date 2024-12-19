@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import { insertData } from './fixtureData';
 import doctorData from './routes/getDoctorsData'; 
 import  trainingData  from './routes/getTrainingData';
 import  groomingData  from './routes/getGroomingData';
@@ -19,13 +20,14 @@ const app = express()
 app.use(express.json());
 const connection = async () => {
   try {
-    await mongoose.connect('mongodb+srv://chelpurivinaysai02:ozzIYjEuTKFUdtDN@pet-buddy-database.wrxuj.mongodb.net/?retryWrites=true&w=majority&appName=Pet-Buddy-Database');
+    await mongoose.connect('mongodb+srv://chelpurivinaysai02:5WYwXDMeWSKc4dPQ@petbuddy.hdynq.mongodb.net/?retryWrites=true&w=majority&appName=PetBuddy');
     console.log('Database connection established');
   } catch (error) {
     console.error('Database connection failed:', error); 
   }
 };
 connection();
+// insertData();
 app.use('/api/doctorData', doctorData);
 app.use('/api/trainingData',trainingData);
 app.use('/api/groomingData',groomingData);
