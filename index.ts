@@ -1,6 +1,5 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { insertData } from './fixtureData';
 import doctorData from './routes/getDoctorsData'; 
 import  trainingData  from './routes/getTrainingData';
 import  groomingData  from './routes/getGroomingData';
@@ -27,7 +26,6 @@ const connection = async () => {
   }
 };
 connection();
-// insertData();
 app.use('/api/doctorData', doctorData);
 app.use('/api/trainingData',trainingData);
 app.use('/api/groomingData',groomingData);
